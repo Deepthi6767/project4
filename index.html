@@ -1,29 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
-  <title>Drum Kit</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-</head>
+  <title>Dicee</title>
 
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+  <!-- Particle Background Library -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+</head>
 <body>
 
-  <h1 id="title">Drum 🥁😄 Kit</h1>
-  <div class="set">
-    <button class="w drum">w</button>
-    <button class="a drum">a</button>
-    <button class="s drum">s</button>
-    <button class="d drum">d</button>
-    <button class="j drum">j</button>
-    <button class="k drum">k</button>
-    <button class="l drum">l</button>
+  <!-- Live Particle Background -->
+  <div id="tsparticles"></div>
+
+  <!-- Game Container -->
+  <div class="container">
+    <h1 id="res">Refresh Me</h1>
+
+    <div class="dice">
+      <p>Player 1</p>
+      <img id="img1" class="img1" src="images/dice6.png" alt="dice">
+    </div>
+
+    <div class="dice">
+      <p>Player 2</p>
+      <img id="img2" class="img2" src="images/dice6.png" alt="dice">
+    </div>
+
+    <button id="roll_btn" class="btn">Roll</button>
   </div>
 
+  <!-- Dice Roll Logic -->
+  <script src="code.js"></script>
 
+  <!-- Particle Background Script -->
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: {
+        enable: true,
+        zIndex: -1
+      },
+      particles: {
+        number: { value: 80 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: { min: 1, max: 5 } },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          outModes: "bounce"
+        }
+      }
+    });
+  </script>
 
-  <script src="index.js"></script>
 </body>
-
 </html>
